@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { useState } from 'react';
+import * as C from './App.styles';
+import { Item } from './types/Item';
+import { Category } from './types/Category';
+import { categories } from './data/categories';
+import { items } from './data/items';
+import { getCurrentMonth } from './helpers/dateFilter';
+
+
+const App = () => {
+
+  const [List, setList] = useState(items);
+  const [filteredList, setFilteredList] = useState<Item[]>([]);
+  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <C.Container>
+      <C.Header>
+     <C.HeaderText>Sistema de Finanças</C.HeaderText>
+     </C.Header>  
+
+     <C.Body>
+       ...
+     </C.Body>
+
+    </C.Container>
   );
 }
 
